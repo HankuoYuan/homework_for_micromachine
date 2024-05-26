@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 05/24/2024 02:32:47 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: D:\software\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG PRINT(.\Listings\main.lst) OBJECT(.\
+                      Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 0130              2     AJMP START
+0030                   3     ORG 0030H
+0030                   4     START:
+0030 7902              5         MOV R1,#02H
+0032 7820              6         MOV R0,#20H
+0034 752005            7         MOV 20H,#05H
+0037 752155            8         MOV 21H,#055H
+003A 759800            9         MOV SCON,#00H
+                      10         ;MOV 0AFH,#01
+                      11         ;MOV 0ACH,#01
+003D                  12     SEND:
+003D E6               13         MOV A,@R0
+003E F599             14         MOV SBUF,A
+0040                  15     WAIT:
+0040 3099FD           16         JNB TI,WAIT
+0043 C299             17         CLR TI
+                      18         ;INC R0
+0045 114B             19         ACALL DELAY
+                      20         ;DJNZ R1,SEND
+0047 013D             21         AJMP SEND
+0049                  22     ALLSTOP:
+0049 0149             23         AJMP ALLSTOP;
+004B                  24     DELAY:
+004B 7C14             25         MOV R4,#20;1us  12mHZ 机器时间周期为1us
+004D                  26     DEL1:
+004D 7E64             27         MOV R6,#100;1us T=(1+1+1+((250*2+2)*100+2)*20+2)=1004050us  1s
+004F                  28     DEL2:
+004F 7FFA             29         MOV    R7,#250;1us
+0051 DFFE             30         DJNZ    R7,$;2us   循环250次 该语句消耗2微秒，一个机器周期
+0053 DEFA             31         DJNZ    R6,DEL2;2us   每次减1，不等于0则跳转，该语句即为从Del1到这句，循环100次
+0055 DCF6             32         DJNZ    R4,DEL1;2us   循环20次
+0057 32               33         RETI     ;2us
+                      34     END
+A51 MACRO ASSEMBLER  MAIN                                                                 05/24/2024 02:32:47 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ALLSTOP. . . . . .  C ADDR   0049H   A   
+DEL1 . . . . . . .  C ADDR   004DH   A   
+DEL2 . . . . . . .  C ADDR   004FH   A   
+DELAY. . . . . . .  C ADDR   004BH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SEND . . . . . . .  C ADDR   003DH   A   
+START. . . . . . .  C ADDR   0030H   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+WAIT . . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
