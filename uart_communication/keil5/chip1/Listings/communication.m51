@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/24/2024  02:32:47  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/27/2024  01:41:41  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -23,8 +23,8 @@ LINK MAP OF MODULE:  .\Objects\communication (?C_STARTUP)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-* OVERLAP * CODE    0000H     0058H     ABSOLUTE     
-            CODE    0058H     000CH     UNIT         ?C_C51STARTUP
+* OVERLAP * CODE    0000H     0080H     ABSOLUTE     
+            CODE    0080H     000CH     UNIT         ?C_C51STARTUP
 
 
 
@@ -39,7 +39,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
   ----------------------------------
 
   -------         MODULE        ?C_STARTUP
-  C:0058H         SEGMENT       ?C_C51STARTUP
+  C:0080H         SEGMENT       ?C_C51STARTUP
   I:0008H         SEGMENT       ?STACK
   C:0000H         PUBLIC        ?C_STARTUP
   D:00E0H         SYMBOL        ACC
@@ -49,7 +49,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
   N:0000H         SYMBOL        IBPSTACK
   N:0100H         SYMBOL        IBPSTACKTOP
   N:0080H         SYMBOL        IDATALEN
-  C:005BH         SYMBOL        IDATALOOP
+  C:0083H         SYMBOL        IDATALOOP
   N:0000H         SYMBOL        PBPSTACK
   N:0100H         SYMBOL        PBPSTACKTOP
   N:0000H         SYMBOL        PDATALEN
@@ -58,8 +58,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
   N:0000H         SYMBOL        PPAGEENABLE
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
-  C:0058H         SYMBOL        STARTUP1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/24/2024  02:32:47  PAGE 2
+  C:0080H         SYMBOL        STARTUP1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2024  01:41:41  PAGE 2
 
 
   N:0000H         SYMBOL        XBPSTACK
@@ -67,45 +67,78 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-  C:0058H         LINE#         133
-  C:005AH         LINE#         134
-  C:005BH         LINE#         135
-  C:005CH         LINE#         136
-  C:005EH         LINE#         185
-  C:0061H         LINE#         196
+  C:0080H         LINE#         133
+  C:0082H         LINE#         134
+  C:0083H         LINE#         135
+  C:0084H         LINE#         136
+  C:0086H         LINE#         185
+  C:0089H         LINE#         196
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        MAIN
-  C:0049H         SYMBOL        ALLSTOP
-  C:004DH         SYMBOL        DEL1
-  C:004FH         SYMBOL        DEL2
-  C:004BH         SYMBOL        DELAY
+  C:0064H         SYMBOL        ALLSTOP
+  C:0058H         SYMBOL        CONT
+  C:0066H         SYMBOL        DELAY
+  C:006BH         SYMBOL        DELAY0
+  C:006DH         SYMBOL        DELAY1
+  C:006FH         SYMBOL        DELAY2
+  C:0071H         SYMBOL        DELAY3
+  C:003CH         SYMBOL        INITLOOP
+  C:0053H         SYMBOL        LOOP
+  D:00D0H         SYMBOL        PSW
   D:0099H         SYMBOL        SBUF
   D:0098H         SYMBOL        SCON
-  C:003DH         SYMBOL        SEND
+  D:0081H         SYMBOL        SP
   C:0030H         SYMBOL        START
+  D:008DH         SYMBOL        TH1
   B:0098H.1       SYMBOL        TI
-  C:0040H         SYMBOL        WAIT
+  D:008BH         SYMBOL        TL1
+  D:0089H         SYMBOL        TMOD
+  B:0088H.6       SYMBOL        TR1
   C:0000H         LINE#         2
   C:0030H         LINE#         5
-  C:0032H         LINE#         6
-  C:0034H         LINE#         7
-  C:0037H         LINE#         8
+  C:0033H         LINE#         6
+  C:0036H         LINE#         7
+  C:0038H         LINE#         8
   C:003AH         LINE#         9
-  C:003DH         LINE#         13
-  C:003EH         LINE#         14
-  C:0040H         LINE#         16
-  C:0043H         LINE#         17
-  C:0045H         LINE#         19
-  C:0047H         LINE#         21
-  C:0049H         LINE#         23
-  C:004BH         LINE#         25
-  C:004DH         LINE#         27
-  C:004FH         LINE#         29
-  C:0051H         LINE#         30
-  C:0053H         LINE#         31
-  C:0055H         LINE#         32
-  C:0057H         LINE#         33
+  C:003CH         LINE#         11
+  C:003DH         LINE#         12
+  C:003EH         LINE#         13
+  C:003FH         LINE#         14
+  C:0041H         LINE#         15
+  C:0044H         LINE#         16
+  C:0047H         LINE#         17
+  C:004AH         LINE#         18
+  C:004DH         LINE#         19
+  C:004FH         LINE#         20
+  C:0051H         LINE#         21
+  C:0053H         LINE#         23
+  C:0054H         LINE#         24
+  C:0056H         LINE#         25
+  C:0058H         LINE#         27
+  C:005BH         LINE#         28
+  C:005DH         LINE#         29
+  C:005EH         LINE#         30
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2024  01:41:41  PAGE 3
+
+
+  C:0060H         LINE#         31
+  C:0062H         LINE#         32
+  C:0064H         LINE#         34
+  C:0066H         LINE#         35
+  C:0068H         LINE#         36
+  C:006AH         LINE#         37
+  C:006BH         LINE#         38
+  C:006DH         LINE#         39
+  C:006FH         LINE#         40
+  C:0071H         LINE#         41
+  C:0073H         LINE#         42
+  C:0075H         LINE#         43
+  C:0077H         LINE#         44
+  C:0079H         LINE#         45
+  C:007BH         LINE#         46
+  C:007DH         LINE#         47
+  C:007FH         LINE#         48
   -------         ENDMOD        MAIN
 
 *** WARNING L5: CODE SPACE MEMORY OVERLAP
@@ -119,10 +152,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  ?C_START
     MODULE:  .\Objects\STARTUP.obj (?C_STARTUP)
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/24/2024  02:32:47  PAGE 3
+    ADDRESS: 008AH
 
-
-    ADDRESS: 0062H
-
-Program Size: data=9.0 xdata=0 code=103
+Program Size: data=9.0 xdata=0 code=143
 LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

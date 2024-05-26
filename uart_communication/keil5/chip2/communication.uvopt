@@ -26,7 +26,7 @@
     <ToolsetNumber>0x0</ToolsetNumber>
     <ToolsetName>MCS-51</ToolsetName>
     <TargetOption>
-      <CLK51>12000000</CLK51>
+      <CLK51>11059200</CLK51>
       <OPTTT>
         <gFlags>1</gFlags>
         <BeepAtEnd>1</BeepAtEnd>
@@ -132,7 +132,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>DLGDP51</Key>
-          <Name>(98=1026,150,1369,444,1)(82=-1,-1,-1,-1,0)(83=791,124,999,239,0)(84=802,243,1010,358,1)(85=-1,-1,-1,-1,0)(80=1026,448,1230,661,1)(91=-1,-1,-1,-1,0)(92=165,121,375,396,0)</Name>
+          <Name>(98=1026,150,1369,444,1)(82=-1,-1,-1,-1,0)(83=791,124,999,239,0)(84=797,212,1005,327,1)(85=-1,-1,-1,-1,0)(80=1026,448,1230,661,1)(91=-1,-1,-1,-1,0)(92=165,121,375,396,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
       <Breakpoint/>
@@ -140,7 +140,7 @@
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>SCON</ItemText>
+          <ItemText>SCON,0x10</ItemText>
         </Ww>
         <Ww>
           <count>1</count>

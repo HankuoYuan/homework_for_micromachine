@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  MAIN                                                                 05/24/2024 02:22:58 PAGE     1
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:45 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -8,52 +8,25 @@ ASSEMBLER INVOKED BY: D:\software\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DE
 
 LOC  OBJ            LINE     SOURCE
 
-                       1     ;ORG 0000H
-                       2     ;AJMP START
-                       3     ;ORG 0030H
-                       4     ;START:
-                       5         ;MOV R6,#02H
-                       6         ;MOV R0,#20H
-                       7         ;MOV SCON,#10H
-                       8         ;;MOV 0AFH,#01
-                       9         ;;MOV 0ACH,#01
-                      10         ;;MOV 09CH,#01
-                      11     ;LOOP:
-                      12         ;JBC RI,RECE
-                      13         ;SJMP LOOP
-                      14     ;RECE:
-                      15         ;;MOV A,SBUF
-                      16         ;MOV P2,SBUF
-                      17         ;;INC R0
-                      18         ;;DJNZ R6,LOOP
-                      19         ;AJMP LOOP
-                      20     ;ALLSTOP:
-                      21         ;AJMP ALLSTOP;
-                      22     ;END
-0000                  23     ORG 0000H
-0000 0130             24     AJMP START
-0023                  25     ORG 0023H
-0023 013C             26     AJMP RECE
-0030                  27     ORG 0030H
-0030                  28     START:
-0030 7E02             29         MOV R6,#02H    ; ³õÊ¼»¯Ñ­»·¼ÆÊÆ÷
-0032 7820             30         MOV R0,#20H   ; ³õÊ¼»¯Ê¾Ý»º³åÇøÖ¸Õë
-0034 759810           31         MOV SCON,#10H ;
-0037 75A890           32         MOV IE,#90H
-003A                  33     LOOP:
-003A 80FE             34         SJMP LOOP     ; ÈôÎ´½ÓÊÕµ½Ê¾ÝÔò¼ÌÐø²éÑ¯
-003C                  35     RECE:
-003C E599             36         MOV A, SBUF   ; ¶ÁÈ¡SBUFÖÐµÄÊ¾Ýµ½ÀÛ¼ÓÆ÷A
-003E F5A0             37         MOV P2,A     ; ½«½ÓÊÕµ½µÄÊ¾ÝÊä³öµ½P2¿Ú
-                      38         ; ÕâÀï¿ÉÒÔÌí¼Ó¶ÔR0ºÍR6µÄ²Ù×÷£¬Èç¹ûÐèÒªÁ¬Ðø½ÓÊÕ²¢´æ´¢Ê¾Ý
-0040 C298             39         CLR RI        ; Çå³RI±êÖ¾Î»£¬Èç¹û±ØÒªµÄ»°
-                      40         ;INC R0       ; Ôö¼ÓÊ¾ÝÖ¸Õë£¬Èç¹û´æ´¢Ê¾Ýµ½ÄÚ´æ
-0042 013A             41         AJMP LOOP
-0044                  42     ALLSTOP:
-0044 0144             43         AJMP ALLSTOP  ; ÎÞÏÞÑ­»·±£³Ö³ÌÐòÔËÐÐ
-                      44     
-                      45     END
-A51 MACRO ASSEMBLER  MAIN                                                                 05/24/2024 02:22:58 PAGE     2
+0000                   1     ORG 0000H
+0000 0130              2     AJMP START
+0030                   3     ORG 0030H
+0030                   4     START:
+0030 758920            5         MOV TMOD,#20H
+0033 758BFD            6         MOV TL1,#0FDH
+0036 758DFD            7         MOV TH1,#0FDH
+0039 759890            8         MOV SCON,#90H
+003C D28E              9         SETB TR1
+003E                  10     LOOP:
+003E 109802           11         JBC RI,RECE
+0041 80FB             12         SJMP LOOP     ; ÈôÎ´½ÓÊÕµ½Ê¾ÝÔò¼ÌÐø²éÑ¯
+0043                  13     RECE:
+0043 E599             14         MOV A, SBUF   ; ¶ÁÈ¡SBUFÖÐµÄÊ¾Ýµ½ÀÛ¼ÓÆ÷A
+0045 F5A0             15         MOV P2,A     ; ½«½ÓÊÕµ½µÄÊ¾ÝÊä³öµ½P2¿Ú
+0047 C298             16         CLR RI        ; Çå³RI±êÖ¾Î»£¬Èç¹û±ØÒªµÄ»°
+0049 013E             17         AJMP LOOP
+                      18     END
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:45 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -61,15 +34,17 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-ALLSTOP. . . . . .  C ADDR   0044H   A   
-IE . . . . . . . .  D ADDR   00A8H   A   
-LOOP . . . . . . .  C ADDR   003AH   A   
+LOOP . . . . . . .  C ADDR   003EH   A   
 P2 . . . . . . . .  D ADDR   00A0H   A   
-RECE . . . . . . .  C ADDR   003CH   A   
+RECE . . . . . . .  C ADDR   0043H   A   
 RI . . . . . . . .  B ADDR   0098H.0 A   
 SBUF . . . . . . .  D ADDR   0099H   A   
 SCON . . . . . . .  D ADDR   0098H   A   
 START. . . . . . .  C ADDR   0030H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
 
 
 REGISTER BANK(S) USED: 0 
