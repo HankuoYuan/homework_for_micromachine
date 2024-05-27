@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:45 PAGE     1
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 20:56:56 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -12,13 +12,13 @@ LOC  OBJ            LINE     SOURCE
 0000 0130              2     AJMP START
 0030                   3     ORG 0030H
 0030                   4     START:
-0030 758920            5         MOV TMOD,#20H
+0030 758920            5         MOV TMOD,#20H;≈‰÷√∂® ±∆˜
 0033 758BFD            6         MOV TL1,#0FDH
 0036 758DFD            7         MOV TH1,#0FDH
-0039 759890            8         MOV SCON,#90H
+0039 759890            8         MOV SCON,#90H;≈‰÷√¥Æø⁄
 003C D28E              9         SETB TR1
 003E                  10     LOOP:
-003E 109802           11         JBC RI,RECE
+003E 109802           11         JBC RI,RECE;≈–∂œΩ” ’±Í÷æ
 0041 80FB             12         SJMP LOOP     ; »ÙŒ¥Ω” ’µΩ æ›‘ÚºÃ–¯≤È—Ø
 0043                  13     RECE:
 0043 E599             14         MOV A, SBUF   ; ∂¡»°SBUF÷–µƒ æ›µΩ¿€º”∆˜A
@@ -26,7 +26,7 @@ LOC  OBJ            LINE     SOURCE
 0047 C298             16         CLR RI        ; «Â≥RI±Í÷æŒª£¨»Áπ˚±ÿ“™µƒª∞
 0049 013E             17         AJMP LOOP
                       18     END
-A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:45 PAGE     2
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 20:56:56 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------

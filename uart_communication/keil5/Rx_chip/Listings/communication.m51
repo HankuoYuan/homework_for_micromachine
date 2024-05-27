@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/27/2024  01:41:45  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/27/2024  20:56:57  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\communication (?C_STARTUP)
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
   C:004BH         SYMBOL        STARTUP1
-BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2024  01:41:45  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/27/2024  20:56:57  PAGE 2
 
 
   N:0000H         SYMBOL        XBPSTACK

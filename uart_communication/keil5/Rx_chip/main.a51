@@ -2,13 +2,13 @@ ORG 0000H
 AJMP START
 ORG 0030H
 START:
-    MOV TMOD,#20H
+    MOV TMOD,#20H;配置定时器
     MOV TL1,#0FDH
     MOV TH1,#0FDH
-    MOV SCON,#90H
+    MOV SCON,#90H;配置串口
     SETB TR1
 LOOP:
-    JBC RI,RECE
+    JBC RI,RECE;判断接收标志
     SJMP LOOP     ; 若未接收到数据则继续查询
 RECE:
     MOV A, SBUF   ; 读取SBUF中的数据到累加器A

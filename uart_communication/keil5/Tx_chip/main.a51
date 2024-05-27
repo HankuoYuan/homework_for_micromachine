@@ -8,28 +8,28 @@ START:
     MOV A,#1
     MOV R0,#20H
 INITLOOP:
-    MOV @R0,A
+    MOV @R0,A;赋值20h到28h
     INC R0
     INC A
     DJNZ R1,INITLOOP
-    MOV TMOD,#20H
+    MOV TMOD,#20H;配置定时器
     MOV TL1,#0FDH
     MOV TH1,#0FDH
-    MOV SCON,#80H
+    MOV SCON,#80H;配置串口
     SETB TR1
     MOV R0,#20H
     MOV R1,#9
 LOOP:
-    MOV A,@R0
-    MOV SBUF,A
+    MOV A,@R0;赋值累加器
+    MOV SBUF,A;赋值串口缓冲器
     AJMP CONT
 CONT:
-    JNB TI,CONT
-    CLR TI
+    JNB TI,CONT;判断是否发送成功
+    CLR TI;清楚标志
     INC R0
     ACALL DELAY
-    DJNZ R1,LOOP
-    AJMP ALLSTOP
+    DJNZ R1,LOOP;发下一个地址内容
+    AJMP ALLSTOP;发送完毕进行无限循环
 ALLSTOP:
     AJMP ALLSTOP;
 DELAY: MOV R2,#30H ;长延时

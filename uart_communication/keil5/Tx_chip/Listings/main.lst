@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:41 PAGE     1
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 20:57:03 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.2.7.0
@@ -18,28 +18,28 @@ LOC  OBJ            LINE     SOURCE
 0038 7401              8         MOV A,#1
 003A 7820              9         MOV R0,#20H
 003C                  10     INITLOOP:
-003C F6               11         MOV @R0,A
+003C F6               11         MOV @R0,A;赋值20h到28h
 003D 08               12         INC R0
 003E 04               13         INC A
 003F D9FB             14         DJNZ R1,INITLOOP
-0041 758920           15         MOV TMOD,#20H
+0041 758920           15         MOV TMOD,#20H;配置定时器
 0044 758BFD           16         MOV TL1,#0FDH
 0047 758DFD           17         MOV TH1,#0FDH
-004A 759880           18         MOV SCON,#80H
+004A 759880           18         MOV SCON,#80H;配置串口
 004D D28E             19         SETB TR1
 004F 7820             20         MOV R0,#20H
 0051 7909             21         MOV R1,#9
 0053                  22     LOOP:
-0053 E6               23         MOV A,@R0
-0054 F599             24         MOV SBUF,A
+0053 E6               23         MOV A,@R0;赋值累加器
+0054 F599             24         MOV SBUF,A;赋值串口缓冲器
 0056 0158             25         AJMP CONT
 0058                  26     CONT:
-0058 3099FD           27         JNB TI,CONT
-005B C299             28         CLR TI
+0058 3099FD           27         JNB TI,CONT;判断是否发送成功
+005B C299             28         CLR TI;清楚标志
 005D 08               29         INC R0
 005E 1166             30         ACALL DELAY
-0060 D9F1             31         DJNZ R1,LOOP
-0062 0164             32         AJMP ALLSTOP
+0060 D9F1             31         DJNZ R1,LOOP;发下一个地址内容
+0062 0164             32         AJMP ALLSTOP;发送完毕进行无限循环
 0064                  33     ALLSTOP:
 0064 0164             34         AJMP ALLSTOP;
 0066 7A30             35     DELAY: MOV R2,#30H ;长延时
@@ -57,7 +57,7 @@ LOC  OBJ            LINE     SOURCE
 007D DAEC             47         DJNZ R2,DELAY0 
 007F 22               48         RET
                       49     END
-A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 01:41:41 PAGE     2
+A51 MACRO ASSEMBLER  MAIN                                                                 05/27/2024 20:57:03 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
